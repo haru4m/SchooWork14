@@ -1,4 +1,4 @@
-package model;
+
 
 import java.io.IOException;
 
@@ -10,16 +10,16 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Display
+ * Servlet implementation class HumanServlet
  */
-@WebServlet("/DisplayServlet")
-public class DisplayServlet extends HttpServlet {
+@WebServlet("/HumanServlet")
+public class HumanServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DisplayServlet() {
+    public HumanServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,7 +29,6 @@ public class DisplayServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -37,10 +36,22 @@ public class DisplayServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		// Human.htmlに入力されたnameとageを取得
+		String name = request.getParameter("name");
+		String age = request.getParameter("age");
+		
+		Human human = HumanManager.getHuman(name,age);
+		request.setAttribute("human", human);
+		
+		//取得した値をOutputHuman.jspに引き渡し
+//sd		request.setAttribute("name" ,h.getName());
+//		request.setAttribute("age", h.getAge());
 		
 		
-		RequestDispatcher rd = request.getRequestDispatcher("");
-		rd.forward(request, response);
+		RequestDispatcher rd = request.getRequestDispatcher("OutputHuman.jsp");	
+		rd.forward(request,response);
+		
+	
 	}
 
 }

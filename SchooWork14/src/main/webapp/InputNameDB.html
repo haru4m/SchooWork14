@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>データベース経由</title>
+</head>
+<body>
+	<p>ユーザ管理</p>
+	<p>氏名と年齢を入力してください</p>
+	<form action="InputServletDB" method="post">
+		<p>氏名：<input type="text" name="name"></p>
+		<p>年齢：<input type="number" name="age"></p>
+		<input type="submit" value="送信">	</form>
+	<p></p>
+	<P>ユーザー確認</P>
+	<p>登録されてるユーザーを確認します。</p>
+	<form action="InputServletDB" method="get">
+		<input type="submit" value="確認">
+	</form>
+	
+
+</body>
+</html>

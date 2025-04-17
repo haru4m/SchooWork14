@@ -1,4 +1,4 @@
-package model;
+
 
 public class HumanManager {
 	public static Human getHuman(String name , String age) {

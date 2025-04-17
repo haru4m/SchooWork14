@@ -1,4 +1,4 @@
-package model;
+
 
 import java.io.IOException;
 
@@ -9,17 +9,19 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+
+
 /**
- * Servlet implementation class HumanServlet
+ * Servlet implementation class InputServletDB
  */
-@WebServlet("/HumanServlet")
-public class HumanServlet extends HttpServlet {
+@WebServlet("/InputServletDB")
+public class InputServletDB extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public HumanServlet() {
+    public InputServletDB() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,6 +31,13 @@ public class HumanServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+	
+		String name ="test";
+		request.setAttribute("name", name);
+		SelectHuman human = new SelectHuman(request);
+		
+		RequestDispatcher rd1 = request.getRequestDispatcher("Output2HumanDB.jsp");
+		rd1.forward(request,response);
 	}
 
 	/**
@@ -36,21 +45,12 @@ public class HumanServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		// Human.htmlに入力されたnameとageを取得
 		String name = request.getParameter("name");
 		String age = request.getParameter("age");
-		
-		Human human = HumanManager.getHuman(name,age);
+		Human human = InputHumanDB.getHuman(name, age);
 		request.setAttribute("human", human);
-		
-		//取得した値をOutputHuman.jspに引き渡し
-//sd		request.setAttribute("name" ,h.getName());
-//		request.setAttribute("age", h.getAge());
-		
-		
-		RequestDispatcher rd = request.getRequestDispatcher("OutputHuman.jsp");	
+		RequestDispatcher rd = request.getRequestDispatcher("OutputHumanDB.jsp");
 		rd.forward(request,response);
-		
 	
 	}
 
