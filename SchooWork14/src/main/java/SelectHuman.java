@@ -2,6 +2,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -9,6 +13,8 @@ public class SelectHuman {
 	public SelectHuman(HttpServletRequest request){
 		Connection con = null;
 		PreparedStatement ps = null;
+		
+		List<Human> humanList = new ArrayList<>();
 		
 		// データベースでとってきたデータをとっておく
 		ResultSet rs = null;
@@ -33,8 +39,12 @@ public class SelectHuman {
 			
 			rs = ps.executeQuery();
 			
-			while(rs.next) {
-				a
+			while(rs.next()) {
+				int id = rs.getInt("id");
+				String name = rs.getString("name");
+				int age = rs.getInt("age");
+				
+				
 			}
 			
 			//データべースへの接続

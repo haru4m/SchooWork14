@@ -47,6 +47,7 @@ public class InputServletDB extends HttpServlet {
 		// TODO Auto-generated method stub
 		String name = request.getParameter("name");
 		String age = request.getParameter("age");
+		
 		Human human = InputHumanDB.getHuman(name, age);
 		request.setAttribute("human", human);
 		RequestDispatcher rd = request.getRequestDispatcher("OutputHumanDB.jsp");
