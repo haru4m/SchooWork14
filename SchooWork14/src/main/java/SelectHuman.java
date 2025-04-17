@@ -34,7 +34,7 @@ public class SelectHuman {
 			rs = ps.executeQuery();
 			
 			while(rs.next) {
-				
+				a
 			}
 			
 			//データべースへの接続
