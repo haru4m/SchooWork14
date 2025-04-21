@@ -7,7 +7,7 @@ public class InputHumanDB {
 	int iiAge;
 	String name;
 
-	public static Human getHuman(String name, String age) {
+	public static Human getHumandb(String name, String age) {
 		int iAge = Integer.parseInt(age);
 		Connection con = null;
 		PreparedStatement ps = null;

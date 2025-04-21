@@ -48,7 +48,7 @@ public class InputServletDB extends HttpServlet {
 		String name = request.getParameter("name");
 		String age = request.getParameter("age");
 		
-		Human human = InputHumanDB.getHuman(name, age);
+		Human human = InputHumanDB.getHumandb(name, age);
 		request.setAttribute("human", human);
 		RequestDispatcher rd = request.getRequestDispatcher("OutputHumanDB.jsp");
 		rd.forward(request,response);

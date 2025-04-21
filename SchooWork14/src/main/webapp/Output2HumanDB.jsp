@@ -7,6 +7,6 @@
 <title>autoput</title>
 </head>
 <body>
-これが表示される
+<%String name =  %>
 </body>
 </html>
